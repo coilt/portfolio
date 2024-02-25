@@ -1,0 +1,43 @@
+.container {
+  min-height: 150vh;
+  position: relative;
+  top: -100px;
+  
+  
+
+  .scrollCard {
+    position: sticky;
+    top: 100px;
+    height: 100vh;
+    background-color: rgba(37, 39, 181, 0.676);
+    border-radius: 20px;
+    
+  }
+
+  .card02 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    .cardContainer {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      border-radius: 20px;
+
+      img {
+        object-fit: cover;
+        border-radius: 20px;
+        
+      }
+    }
+  }
+
+}
+
+ 

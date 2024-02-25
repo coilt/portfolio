@@ -1,12 +1,10 @@
-'use client';
-import React, { useEffect } from 'react';
-import Head from 'next/head';
-import ScrollCards from './components/scrollcards/ScrollCards';
-import Lenis from '@studio-freight/lenis';
-
+'use client'
+import React, { useEffect } from 'react'
+import Head from 'next/head'
+import FlipCards from './components/flipcards/FlipCards'
+import Lenis from '@studio-freight/lenis'
 
 export default function Home() {
-
   useEffect(() => {
     const lenis = new Lenis()
     function raf(time) {
@@ -19,24 +17,14 @@ export default function Home() {
     <div>
       <Head>
         <title>Scrolling Cards Animation</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main>
-
-       
-        <ScrollCards />
-        <ScrollCards />
-        <ScrollCards />
-        <ScrollCards />
-
- 
-
+      <FlipCards/>
       </main>
 
-      <footer>
-        {/* Footer content */}
-      </footer>
+      <footer>{/* Footer content */}</footer>
     </div>
-  );
+  )
 }
