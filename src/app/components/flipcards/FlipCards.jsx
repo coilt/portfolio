@@ -16,9 +16,11 @@ export default function FlipCard() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    gsap.set(portfolioRef.current, { visibility: "visible", xPercent: 100, yPercent: 100 });    gsap.to(portfolioRef.current, {
+    gsap.set(portfolioRef.current, { visibility: "visible", xPercent: 100, yPercent: 100, filter: "blur(0px)" });    
+    gsap.to(portfolioRef.current, {
       scale: 0.4,
       x: '-1%',
+      filter: 'blur(30px)', // Apply blur effect
       scrollTrigger: {
         trigger: portfolioRef.current,
         start: 'top 10%',
