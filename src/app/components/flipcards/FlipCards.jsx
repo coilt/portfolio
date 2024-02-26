@@ -15,23 +15,23 @@ export default function FlipCard() {
     gsap.registerPlugin(ScrollTrigger);
     gsap.set(portfolioRef.current, {
       visibility: 'visible',
-      xPercent: 100,
-      yPercent: 100,
+      x: 0,
+      y: '100vh',
       filter: 'blur(0px)',
     });
     gsap.set(portfolioRef2.current, {
       visibility: 'visible',
-      xPercent: 100,
-      yPercent: 100,
+      x: 0,
+      y: '100vh',
       filter: 'blur(0px)',
     });
     gsap.to(portfolioRef.current, {
       scale: 0.8,
-      x: '-1%',
+      x: 0,
       filter: 'blur(20px)', // Apply blur effect
       scrollTrigger: {
         trigger: portfolioRef.current,
-        start: 'top 5%',
+        start: 'top 15%',
         end: '+=2000',
         markers: false,
         pin: true,
@@ -42,17 +42,18 @@ export default function FlipCard() {
     });
     gsap.to(portfolioRef2.current, {
       scale: 0.8,
-      x: '-1%',
+      x: 0,
       filter: 'blur(20px)', // Apply blur effect
       scrollTrigger: {
         trigger: portfolioRef2.current,
-        start: 'top 5%', // Start the second animation when the first one is at 5%
+        start: 'top 5%',
         end: '+=2000',
         markers: false,
         pin: true,
         pinType: 'fixed',
         scrub: true,
         ease: 'power1.out',
+        
       },
     });
   }, []);
