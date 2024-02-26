@@ -16,7 +16,7 @@ export default function FlipCard() {
 
     tl.fromTo(
       portfolioRef.current,
-      { y: '100vh', visibility: 'visible', transformPerspective: 600, z: 0 },
+      { y: '100vh', visibility: 'visible', transformPerspective: 600, z: 0, filter: 'blur(15)' },
       {
         z: 0,
         filter: 'blur(0px)',
@@ -38,6 +38,7 @@ export default function FlipCard() {
         },
       },
       y: '200vh',
+      filter: 'blur(15px)',
     })
   }, [portfolioRef.current])
 
