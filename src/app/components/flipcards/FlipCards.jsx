@@ -12,12 +12,13 @@ export default function FlipCard() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial perspective and position
+    // Set initial perspective, position, and blur
     gsap.set(portfolioRef.current, {
       y: '100vh', // Ensures the card starts just below the viewport
       visibility: 'visible',
       transformPerspective: 1000, // Adjust for depth effect
       z: 0, // Starting Z position
+      filter: 'blur(0px)', // Start with no blur
     });
 
     ScrollTrigger.create({
@@ -28,10 +29,12 @@ export default function FlipCard() {
       pin: true,
       markers: true,
       onUpdate: (self) => {
-        // Dynamically adjust the Z position based on scroll progress
-        const zPosition = -600 * self.progress; // Move element in Z axis
+        // Dynamically adjust the Z position and blur based on scroll progress
+        const zPosition = -1000 * self.progress; // Move element in Z axis
+        const blurAmount = 30 * self.progress; // Increase blur as the element "moves away"
         gsap.to(portfolioRef.current, {
           z: zPosition,
+          filter: `blur(${blurAmount}px)`,
           ease: 'none',
         });
       }
