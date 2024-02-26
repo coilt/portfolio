@@ -1,45 +1,45 @@
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import Image from 'next/image';
-import Card1 from './card_01.jpg';
-import './PortfolioComponent.css';
+import { useRef, useEffect } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+import Image from 'next/image'
+import Card1 from './card_01.jpg'
+import './PortfolioComponent.css'
 
 export default function FlipCard() {
-  const portfolioRef = useRef(null);
+  const portfolioRef = useRef(null)
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger)
 
-    // Set initial perspective, position, and blur
-    gsap.set(portfolioRef.current, {
-      y: '100vh', // Ensures the card starts just below the viewport
-      visibility: 'visible',
-      transformPerspective: 1000, // Adjust for depth effect
-      z: 0, // Starting Z position
-      filter: 'blur(0px)', // Start with no blur
-    });
+    const tl = gsap.timeline()
 
-    ScrollTrigger.create({
-      trigger: portfolioRef.current,
-      start: 'top 15%', // Adjust as needed
-      end: 'bottom top',
-      scrub: true,
-      pin: true,
-      markers: true,
-      onUpdate: (self) => {
-        // Dynamically adjust the Z position and blur based on scroll progress
-        const zPosition = -1000 * self.progress; // Move element in Z axis
-        const blurAmount = 30 * self.progress; // Increase blur as the element "moves away"
-        gsap.to(portfolioRef.current, {
-          z: zPosition,
-          filter: `blur(${blurAmount}px)`,
-          ease: 'none',
-        });
+    tl.fromTo(
+      portfolioRef.current,
+      { y: '100vh', visibility: 'visible', transformPerspective: 600, z: 0 },
+      {
+        z: 0,
+        filter: 'blur(0px)',
+        ease: 'none',
       }
-    });
-  }, []);
+    )
+
+    const cardAnimation = gsap.to(portfolioRef.current, {
+      scrollTrigger: {
+        trigger: portfolioRef.current,
+        start: 'top 15%',
+        end: 'bottom top',
+        scrub: true,
+        pin: true,
+        markers: true,
+        onUpdate: (self) => {
+          const zPosition = -1000 * self.progress
+          gsap.set(portfolioRef.current, { z: zPosition })
+        },
+      },
+      y: '200vh',
+    })
+  }, [portfolioRef.current])
 
   return (
     <>
@@ -47,5 +47,5 @@ export default function FlipCard() {
         <Image src={Card1} alt='Portfolio' fill />
       </div>
     </>
-  );
+  )
 }
