@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Lenis from '@studio-freight/lenis'
 import './page.module.css'
 import CardsSlider from './components/flipcards/CardsSlider'
+import FlipCards from './components/flipcards/FlipCards.jsx'
 
 import Card1 from '../../public/card_01.jpg'
 import Card2 from '../../public/card_02.jpg'
@@ -30,75 +31,10 @@ export default function Home() {
       </Head>
 
       <main>
-      <CardsSlider/>
-        <nav>
-          <div className='logo'>
-            <a href='#'>Noir Woord</a>
-          </div>
-
-          <div className='pages'>
-            <a href='#'>Films</a>
-            <a href='#'>Production</a>
-            <a href='#'>Info</a>
-            <a href='#'>Contact</a>
-          </div>
-
-          <div className='shop'>
-            <a href='#'>Search</a>
-            <a href='#'>Account</a>
-            <a href='#'>Cart</a>
-          </div>
-        </nav>
-
-        <footer>
-          <p>Showreel 2.0</p>
-          <p>2024</p>
-        </footer>
-        <div className='container'>
-          <div className='slider'>
-            <div className='card'>
-              <img src='/card_01.jpg' alt='Portfolio' />
-
-              <div className='copy'>
-                <h1>Future Echoes</h1>
-              </div>
-            </div>
-            <div className='card'>
-              <img src='/card_02.jpg' alt='Portfolio' />
-
-              <div className='copy'>
-                <h1>Neon Void</h1>
-              </div>
-            </div>
-            <div className='card'>
-              <img src='/card_03.jpg'  alt='Portfolio' />
-
-              <div className='copy'>
-                <h1>The Mystic River</h1>
-              </div>
-            </div>
-            <div className='card'>
-              <img src='/card_04.jpg' alt='Portfolio' />
-
-              <div className='copy'>
-                <h1>Secret Sanctuary</h1>
-              </div>
-            </div>
-            <div className='card'>
-              <img src='/card_05.jpg' alt='Portfolio' />
-
-              <div className='copy'>
-                <h1>Solemn Sky</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-
-       
-
+        
+        <FlipCards />
+         
       </main>
-
-      <footer>{/* Footer content */}</footer>
     </div>
   )
 }
