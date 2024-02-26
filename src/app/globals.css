@@ -1,9 +1,162 @@
- body {
-  background-color: black;
- }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
- img {
-   
+body {
+  font-family: Sans-Serif;
+  background-color: aliceblue;
+}
+
+img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+p,
+a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  color: black;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+nav > div {
+  flex: 1;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shop {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #dfe1c8;
+}
+
+.slider {
+  position: absolute;
+  top: 15vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  perspective: 300px;
+  perspective-origin: 50% -20%;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translate3d(-50%, -50%, 0);
+  background-color: #000;
+}
+
+.card img {
+  position: absolute;
+  opacity: 0.75;
+}
+
+.copy {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  text-align: center;
+  color: #dfe1c8;
+}
+
+h1 {
+  position: relative;
+  text-align: center;
+  font-family: 'PP Editorial Old';
+  font-size: 6vw;
+  font-weight: 100;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #dfe1c8;
+  
+}
+
+h1 span {
+  position: relative;
+  display: inline-block;
+}
+
+@media(max-width: 900px) {
+  .pages {
+    display: none;
+
+  }
  }
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
